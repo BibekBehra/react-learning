@@ -10,6 +10,11 @@ persons:[
   {name:'Viku',age:'29'}
 ]
 }
+
+ test=()=>{
+  const [...personStatewww]=this.state.persons;
+console.log(personStatewww);
+}
 switchNameHandler= (newName) => {
 this.setState({
     persons:[
@@ -35,6 +40,7 @@ render() {
 return (
   <div className="App">
     <h1> Hi i am a react app </h1> 
+    <button onClick={this.test}> test </button> 
     <button onClick={()=>  this.switchNameHandler('from button')}> switches </button> 
     <div>
     <Person name={this.state.persons[0].name} age={this.state.persons[0].age}>Okay</Person> 
