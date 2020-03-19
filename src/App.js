@@ -19,6 +19,7 @@ this.setState({
     ]
 });
 }
+
 nameChangedHandler = (event)=>{
   this.setState({
     persons:[
