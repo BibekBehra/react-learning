@@ -5,9 +5,9 @@ import Person from "./Person/Person.jsx";
 class App extends Component {
   state = {
     persons: [
-      { name: 'Bibek', age: '22' },
-      { name: 'vivek', age: '24' },
-      { name: 'Viku', age: '29' }
+      { id:1,name: 'Bibek', age: '22' },
+      { id:2,name: 'vivek', age: '24' },
+      { id:3,name: 'Viku', age: '29' }
     ],
     showPerson: false
   }
@@ -50,7 +50,8 @@ class App extends Component {
             return <Person
               click={()=>this.deletepersonHandler(index)}
               name={person.name}
-              age={person.age} />
+              age={person.age}
+              key={person.id} /> // Add key to improve performance for list. Sinc ewhile rendering react compares new virtual DOM with the old one and for this it needs an unique identifier which states what got changed
           })}
         </div>
       )
