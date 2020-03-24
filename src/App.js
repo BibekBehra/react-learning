@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import Person from "./Person/Person.jsx";
-
+import Radium,{StyleRoot} from 'radium';
 class App extends Component {
   state = {
     persons: [
@@ -44,6 +44,17 @@ class App extends Component {
     this.setState({ showPerson: !doesShow });
   }
   render() {
+    const style = {
+      backgroundColor: 'white',
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '8px',
+      cursor: 'pointer',
+      ':hover':{
+        backgroundColor:'lightgreen',
+        color:'black'
+      }
+    };
     let persons = null;
     if (this.state.showPerson) {
       persons = (
@@ -73,15 +84,17 @@ class App extends Component {
     //         changed={this.nameChangedHandler} />
     // <Person name={this.state.persons[2].name} age={this.state.persons[2].age} />
     return (
+    <StyleRoot>
       <div className="App">
         <h1> Hi i am a react app </h1>
-        <p className={classes.join(' ')}>This is really working</p>
+        <p className={classes.join(' ')} style={style}>This is really working</p>
         <button onClick={() => this.switchNameHandler('from button')}> switch name </button>
         <button onClick={this.tooglePersonHandler}> toggle </button>
         {persons}
       </div>
+      </StyleRoot>
     );
   }
 }
 
-export default App;
+export default Radium(App);
