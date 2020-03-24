@@ -21,6 +21,7 @@ class App extends Component {
     });
   }
   nameChangedHandler = (event,id) => {
+    //If we see below code we never play around this original person state object.We take a copy put of it , update the copy then finally set he state object using setState();
     const personIndex = this.state.persons.findIndex(p => {
       return p.id === id;
     });
