@@ -34,7 +34,7 @@ class App extends Component {
       //const persons=this.state.persons //returns pointer to original persons array present in state. Hence directly mutates the state
       //const persons=this.state.persons.slice(); old style returns copy of state persons array
       const updatedperson=[...this.state.persons]; //ES6 .New style returns copy of state persons array.Always Update state in immutable state. create a copy update and set state.
-      updatedperson.splice(personIndex,1); // splice update the array by removing the element from personIndex to 1
+      updatedperson.splice(personIndex,1); //  splice update the array by removing the element from personIndex to 1
       this.setState({persons:updatedperson});
   }
   tooglePersonHandler = () => {
