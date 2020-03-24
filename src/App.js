@@ -59,6 +59,13 @@ class App extends Component {
         </div>
       )
     }
+    let classes =[];
+    if(this.state.persons.length<=2){
+      classes.push('red');
+    }
+    if(this.state.persons.length<=1){
+      classes.push('bold');
+    }
     // <Person name={this.state.persons[0].name} age={this.state.persons[0].age}>Okay</Person>
     // <Person name={this.state.persons[1].name} 
     //         age={this.state.persons[1].age}
@@ -68,6 +75,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1> Hi i am a react app </h1>
+        <p className={classes.join(' ')}>This is really working</p>
         <button onClick={() => this.switchNameHandler('from button')}> switch name </button>
         <button onClick={this.tooglePersonHandler}> toggle </button>
         {persons}
