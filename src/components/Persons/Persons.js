@@ -11,6 +11,7 @@ const Persons = (prop) =>
         key={person.id} // Add key to improve performance for list. Since while rendering react compares new virtual DOM with the old one and for this it needs an unique identifier which states what got changed
         changed={event => prop.changed(event, person.id)}
       />
+      
     );
   });
 
