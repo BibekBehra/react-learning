@@ -15,10 +15,10 @@ const StyledButton = styled.button`
 `;
 
 const cockpit = props => {
-  const assignedClass = [];
   let btnClass = classes.simple;
+  debugger;
   if (props.showPerson) {
-    btnClass = classes.Red;
+    btnClass = classes.Violet;
   }
   return (
     <div className={classes.Cockpit}>
