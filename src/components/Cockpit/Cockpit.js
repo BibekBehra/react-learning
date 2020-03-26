@@ -29,7 +29,7 @@ const cockpit = props => {
   // }
   return (
     <div>
-      <h1> Hi i am a react app </h1>
+      <h1>{props.title}</h1>
       <p>This is really working</p>
       <button onClick={() => props.clicked("from button")}>
         switch name 
