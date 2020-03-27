@@ -12,7 +12,7 @@ class PersonsLifeCycle extends Component {
   // }
 
   shouldComponentUpdate(nextProps, nextState) {
-  
+    // personLifeCycle component going to be updated ONLY when there is an update on only on the name roperty of 0th index of person array.
     if(nextProps.persons[0].name !== this.props.persons[0].name){
       console.log('[Persons_LC.js] shouldComponentUpdate and its going to updated');
       return true;
