@@ -13,6 +13,7 @@ const StyleDiv = styled.div`
     width: 450px;
   }
 `;
+ 
 const person = props => {
   console.log("[Person.js] rendering");
   return (

@@ -1,18 +1,51 @@
-import React from "react";
-import Person from "./Person/Person.js";
+import React, { Component } from "react";
+import Person from "./Person/PersonLifeCycle.js";
 
-const PersonsLifeCycle = prop =>{
-  console.log('[PersonsLifeCycle.js] rendering');
-  return prop.persons.map((person, index) => {
-    return (
-      <Person
-        click={() => prop.clicked(index)}
-        name={person.name}
-        age={person.age}
-        key={person.id} // Add key to improve performance for list. Since while rendering react compares new virtual DOM with the old one and for this it needs an unique identifier which states what got changed
-        changed={event => prop.changed(event, person.id)}
-      />
-    );
-  })};
+class PersonsLifeCycle extends Component {
+     // static getDerivedStateFromProps(props, state) {
+  //   console.log('[Persons.js] getDerivedStateFromProps');
+  //   return state;
+  // }
 
+  // componentWillReceiveProps(props) {
+  //   console.log('[Persons.js] componentWillReceiveProps', props);
+  // }
+
+//   shouldComponentUpdate(nextProps, nextState) {
+//     console.log('[Persons.js] shouldComponentUpdate');
+//     return true;
+//   }
+
+//   getSnapshotBeforeUpdate(prevProps, prevState) {
+//     console.log('[Persons.js] getSnapshotBeforeUpdate');
+//     return { message: 'Snapshot!' };
+//   }
+
+//   // componentWillUpdate() {
+
+//   // }
+
+//   componentDidUpdate(prevProps, prevState, snapshot) {
+//     console.log('[Persons.js] componentDidUpdate');
+//     console.log(snapshot);
+//   }
+
+  render() {
+    console.log('[Persons.js] rendering...');
+    return this.props.persons.map((person, index) => {
+      return (
+        <Person
+          click={() => this.props.clicked(index)}
+          name={person.name}
+          age={person.age}
+          key={person.id}
+          changed={event => this.props.changed(event, person.id)}
+        />
+      );
+    });
+  }
+}
 export default PersonsLifeCycle;
+ 
+
+ 
