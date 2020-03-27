@@ -16,7 +16,7 @@ const StyledButton = styled.button`
 
 const cockpit = (props) => {
   let btnClass = classes.simple;
-  if (props.showPerson) {
+  if (props.personlength>=2) {
     btnClass = classes.Violet;
   }
  
