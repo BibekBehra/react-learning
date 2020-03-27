@@ -16,15 +16,52 @@ const StyledButton = styled.button`
 `;
 
 const Cockpit = props => {
-  
-  // This is perfect example of let useEffect being called when there is a specifc code to execute during component mount () and component unmount independently.
-  useEffect(() => {
-    console.log('[Cockpit.js] useEffect');
-    return () => {                                            // This return statement decides that it will get called during component unmount aswell
-      console.log('[Cockpit.js] cleanup work in useEffect');
-    };
-  }, []); // Empty array here decides that being called over only component mount.
 
+// Mount = When component gets inserted inside DOM
+// UnMount = When component gets deleted from  DOM
+// Update = when there's a prop or state updates it trigereed the render of the component
+
+// Default = Mount + update
+// [] Empty Array = Mount
+// [props.person] = Mount + update to ONLY person state
+// return inside useEffect = unmount
+
+//scenario :: 1
+// This will be helpful when we want code to execute only during Mount and update
+  // useEffect(() => {
+  //   console.log("[Cockpit_LC.js] useEffect ");
+  // });
+  
+
+  //scenario :: 2
+
+  // This will be helpful when we want code to execute during mount and update in only person state
+  // useEffect(() => {
+  //   console.log("[Cockpit_LC.js] useEffect ");
+  // },[props.persons]); 
+  
+
+  //scenario :: 3
+  
+  // This will be helpful when we want code to execute only during Mount
+  // useEffect(() => {
+  //   console.log("[Cockpit_LC.js] useEffect ");
+  // },[]); 
+  
+ 
+  
+  
+  //Scenario :: 4
+  
+  // This will be helpful when we want specific  code to execute only during Mount and UnMount
+ useEffect(() => {
+    console.log("[Cockpit.js] useEffect"); // This statement alone gets called during mount coz of empty string
+    return () => {												// This statement alone gets called during unmount
+      console.log("[Cockpit.js] cleanup work  useEffect");
+    };
+  },[]); // Gets called ONLY during component mount
+  
+  
   let btnClass = classes.simple;
   if (props.showPerson) {
     btnClass = classes.Violet;
