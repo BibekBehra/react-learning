@@ -24,7 +24,9 @@ class PersonsLifeCycle extends Component {
     console.log('[PersonsLifeCycle.js] componentDidUpdate');
     console.log(snapshot);
   }
-
+componentWillUnmount(){
+  console.log('[PersonsLifeCycle.js] componentWillUnmount');
+}
   render() {
     console.log('[PersonsLifeCycle.js] rendering...');
     return this.props.persons.map((person, index) => {
