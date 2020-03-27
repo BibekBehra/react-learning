@@ -3,7 +3,7 @@ import classes from "./Person.module.css";
 
 class PersonLifeCycle extends Component {
   render() {
-    console.log("[PersonLifeCycle.js] rendering...");
+    //console.log("[Person_LC.js] rendering...");
     return (
       <div className={classes.Person}>
         <p onClick={this.props.click}>

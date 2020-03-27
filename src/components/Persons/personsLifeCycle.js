@@ -11,24 +11,24 @@ class PersonsLifeCycle extends Component {
   //   console.log('[PersonsLifeCycle.js] componentWillReceiveProps', props);
   // }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log('[PersonsLifeCycle.js] shouldComponentUpdate');
-    return true;
-  }
+//   shouldComponentUpdate(nextProps, nextState) {
+//     console.log('[PersonsLifeCycle.js] shouldComponentUpdate');
+//     return true;
+//   }
 
-  getSnapshotBeforeUpdate(prevProps, prevState) {
-    console.log('[PersonsLifeCycle.js] getSnapshotBeforeUpdate');
-    return { message: 'Snapshot!' };
-  }
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    console.log('[PersonsLifeCycle.js] componentDidUpdate');
-    console.log(snapshot);
-  }
-componentWillUnmount(){
-  console.log('[PersonsLifeCycle.js] componentWillUnmount');
-}
+//   getSnapshotBeforeUpdate(prevProps, prevState) {
+//     console.log('[PersonsLifeCycle.js] getSnapshotBeforeUpdate');
+//     return { message: 'Snapshot!' };
+//   }
+//   componentDidUpdate(prevProps, prevState, snapshot) {
+//     console.log('[PersonsLifeCycle.js] componentDidUpdate');
+//     console.log(snapshot);
+//   }
+// componentWillUnmount(){
+//   console.log('[PersonsLifeCycle.js] componentWillUnmount');
+// }
   render() {
-    console.log('[PersonsLifeCycle.js] rendering...');
+    //console.log('[PersonsLifeCycle.js] rendering...');
     return this.props.persons.map((person, index) => {
       return (
         <Person

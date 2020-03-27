@@ -6,7 +6,7 @@ import Persons from "../components/Persons/personsLifeCycle.js";
 class App extends Component {
   constructor(props){
     super(props);
-    console.log('[App.js] constructor');
+    //console.log('[App.js] constructor');
   }
   state = {
     persons: [
@@ -17,23 +17,23 @@ class App extends Component {
     showPerson: false,
     showCockpit:false
   };
-  static getDerivedStateFromProps(props,state){
-    console.log('[App.js] inside getDerivedStateFromProps')
-    return state;
-  }
-  componentDidMount(){ //Not used so often
-    console.log('[App.js] componentDidMount');
-  }
+  // static getDerivedStateFromProps(props,state){
+  //   console.log('[App.js] inside getDerivedStateFromProps')
+  //   return state;
+  // }
+  // componentDidMount(){ //Not used so often
+  //   console.log('[App.js] componentDidMount');
+  // }
   // componentWillMount(){ //Removed in future release
   //   console.log('[App.js] inside componentWillMount');
   // }
-  shouldComponentUpdate(nextprops,nextState){
-    console.log('[App.js] shouldComponentUpdate');
-    return true;
-  }
-  componentDidUpdate(){
-    console.log('[App.js] componentDidUpdate');
-  }
+  // shouldComponentUpdate(nextprops,nextState){
+  //   console.log('[App.js] shouldComponentUpdate');
+  //   return true;
+  // }
+  // componentDidUpdate(){
+  //   console.log('[App.js] componentDidUpdate');
+  // }
   switchNameHandler = newName => {
     this.setState({
       persons: [
@@ -71,7 +71,7 @@ class App extends Component {
     this.setState({ showCockpit: !doesShow });
   };
   render() {
-    console.log('[App.js] rendering');
+    //console.log('[App.js] rendering');
     let persons = null;
     let cockpit = null;
     if (this.state.showCockpit) {
