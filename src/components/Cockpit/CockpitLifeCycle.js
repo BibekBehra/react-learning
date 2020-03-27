@@ -15,8 +15,8 @@ const StyledButton = styled.button`
 `;
 
 const cockpit = props => {
+    console.log('[CockpitLifeCycle.js] rendering')
   let btnClass = classes.simple;
-  debugger;
   if (props.showPerson) {
     btnClass = classes.Violet;
   }

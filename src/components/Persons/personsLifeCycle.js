@@ -1,8 +1,9 @@
 import React from "react";
 import Person from "./Person/Person.js";
 
-const PersonsLifeCycle = prop =>
-  prop.persons.map((person, index) => {
+const PersonsLifeCycle = prop =>{
+  console.log('[PersonsLifeCycle.js] rendering');
+  return prop.persons.map((person, index) => {
     return (
       <Person
         click={() => prop.clicked(index)}
@@ -12,6 +13,6 @@ const PersonsLifeCycle = prop =>
         changed={event => prop.changed(event, person.id)}
       />
     );
-  });
+  })};
 
 export default PersonsLifeCycle;

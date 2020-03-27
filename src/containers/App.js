@@ -4,6 +4,10 @@ import classes from "./App.module.css";
 import Persons from "../components/Persons/personsLifeCycle.js";
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    console.log('[App.js] constructor');
+  }
   state = {
     persons: [
       { id: 1, name: "Bibek", age: "22" },
@@ -12,6 +16,16 @@ class App extends Component {
     ],
     showPerson: false
   };
+  static getDerivedStateFromProps(props,state){
+    console.log('[App.js] inside getDerivedStateFromProps')
+    return state;
+  }
+  componentDidMount(){ //Not used so often
+    console.log('[App.js] inside componentDidMount');
+  }
+  componentWillMount(){ //Removed in future release
+    console.log('[App.js] inside componentWillMount');
+  }
   switchNameHandler = newName => {
     this.setState({
       persons: [
@@ -45,6 +59,7 @@ class App extends Component {
     this.setState({ showPerson: !doesShow });
   };
   render() {
+    console.log('[App.js] rendering');
     let persons = null;
     let cockpit = null;
     cockpit = (
