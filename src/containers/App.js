@@ -21,10 +21,17 @@ class App extends Component {
     return state;
   }
   componentDidMount(){ //Not used so often
-    console.log('[App.js] inside componentDidMount');
+    console.log('[App.js] componentDidMount');
   }
-  componentWillMount(){ //Removed in future release
-    console.log('[App.js] inside componentWillMount');
+  // componentWillMount(){ //Removed in future release
+  //   console.log('[App.js] inside componentWillMount');
+  // }
+  shouldComponentUpdate(nextprops,nextState){
+    console.log('[App.js] shouldComponentUpdate');
+    return true;
+  }
+  componentDidUpdate(){
+    console.log('[App.js] componentDidUpdate');
   }
   switchNameHandler = newName => {
     this.setState({

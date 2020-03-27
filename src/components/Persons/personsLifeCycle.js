@@ -2,36 +2,38 @@ import React, { Component } from "react";
 import Person from "./Person/PersonLifeCycle.js";
 
 class PersonsLifeCycle extends Component {
-     // static getDerivedStateFromProps(props, state) {
-  //   console.log('[Persons.js] getDerivedStateFromProps');
-  //   return state;
-  // }
+//      static getDerivedStateFromProps(props, state) {
+//     console.log('[PersonsLifeCycle.js] getDerivedStateFromProps');
+//     return state;
+//   }
 
   // componentWillReceiveProps(props) {
-  //   console.log('[Persons.js] componentWillReceiveProps', props);
+  //   console.log('[PersonsLifeCycle.js] componentWillReceiveProps', props);
   // }
 
-//   shouldComponentUpdate(nextProps, nextState) {
-//     console.log('[Persons.js] shouldComponentUpdate');
-//     return true;
-//   }
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('[PersonsLifeCycle.js] shouldComponentUpdate');
+    return true;
+  }
 
-//   getSnapshotBeforeUpdate(prevProps, prevState) {
-//     console.log('[Persons.js] getSnapshotBeforeUpdate');
-//     return { message: 'Snapshot!' };
-//   }
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+      debugger;
+    console.log('[PersonsLifeCycle.js] getSnapshotBeforeUpdate');
+    return { message: 'Snapshot!' };
+  }
 
 //   // componentWillUpdate() {
 
 //   // }
 
-//   componentDidUpdate(prevProps, prevState, snapshot) {
-//     console.log('[Persons.js] componentDidUpdate');
-//     console.log(snapshot);
-//   }
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    debugger;
+    console.log('[PersonsLifeCycle.js] componentDidUpdate');
+    console.log(snapshot);
+  }
 
   render() {
-    console.log('[Persons.js] rendering...');
+    console.log('[PersonsLifeCycle.js] rendering...');
     return this.props.persons.map((person, index) => {
       return (
         <Person
