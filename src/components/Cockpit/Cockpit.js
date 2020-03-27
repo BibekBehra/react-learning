@@ -14,19 +14,12 @@ const StyledButton = styled.button`
   }
 `;
 
-const cockpit = props => {
-  const assignedClass = [];
-  let btnClass=classes.simple;
-  //btnClass=classes.Red;
-  // if (props.persons.length <= 2) {
-  //     classes.push('red');
-  //   }
-  //   if (props.persons.length <= 1) {
-  //     classes.push('bold');
-  //   }
-  // if(props.showPerson){
-  //   btnClass=
-  // }
+const cockpit = (props) => {
+  let btnClass = classes.simple;
+  if (props.showPerson) {
+    btnClass = classes.Violet;
+  }
+ 
   return (
     <div className={classes.Cockpit}>
     {/* Adding cockpit styling inside a div is necassary to apply only cockpit css scope in below items else App scope will be overridden on it */}

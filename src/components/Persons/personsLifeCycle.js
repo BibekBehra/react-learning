@@ -17,17 +17,10 @@ class PersonsLifeCycle extends Component {
   }
 
   getSnapshotBeforeUpdate(prevProps, prevState) {
-      debugger;
     console.log('[PersonsLifeCycle.js] getSnapshotBeforeUpdate');
     return { message: 'Snapshot!' };
   }
-
-//   // componentWillUpdate() {
-
-//   // }
-
   componentDidUpdate(prevProps, prevState, snapshot) {
-    debugger;
     console.log('[PersonsLifeCycle.js] componentDidUpdate');
     console.log(snapshot);
   }
