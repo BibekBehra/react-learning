@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Cockpit from "../components/Cockpit/CockpitLifeCycle.js";
 import classes from "./App.module.css";
 import Persons from "../components/Persons/personsLifeCycle.js";
+import WithClass from "../hoc/WithClass.js";
+import Aux from "../hoc/Auxilary.js";
 
 class App extends Component {
   constructor(props){
@@ -95,13 +97,13 @@ class App extends Component {
       );
     }
     return (
-      <div className={classes.App}>
+      <Aux>
         <button className={classes.Red}  onClick={this.toogleCockpitHandler}> toogleCockpit</button>
         {cockpit}
         {persons}
-      </div>
+        </Aux>
     );
   }
 }
 
-export default App;
+export default WithClass(App,classes.App);
