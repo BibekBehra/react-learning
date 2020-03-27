@@ -17,24 +17,13 @@ const StyledButton = styled.button`
 
 const Cockpit = props => {
   
-  //by default useEffect() being called always for the very first time load of the component.
-
-  //scenario :: 1
+  // This is perfect example of let useEffect being called when there is a specifc code to execute during component mount () and component unmount independently.
   useEffect(() => {
-    console.log("[Cockpit_LC.js] useEffect when there is a change in person state");
-  },[props.persons]); // In addition to default loading being called when there is a change in person state
-
-  //scenario :: 2
-
-  // useEffect(() => {
-  //   console.log("[Cockpit_LC.js] useEffect when there is a change in person state");
-  // },[]); // In addition to default loading called when there is a component mount happens
-
-  //scenario :: 3
-
-  // useEffect(() => {
-  //   console.log("[Cockpit_LC.js] useEffect when there is a change in person state");
-  // }); // Being called each time there is a component mount/unmount happens
+    console.log('[Cockpit.js] useEffect');
+    return () => {                                            // This return statement decides that it will get called during component unmount aswell
+      console.log('[Cockpit.js] cleanup work in useEffect');
+    };
+  }, []); // Empty array here decides that being called over only component mount.
 
   let btnClass = classes.simple;
   if (props.showPerson) {
