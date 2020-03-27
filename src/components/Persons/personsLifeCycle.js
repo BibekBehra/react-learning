@@ -3,32 +3,37 @@ import Person from "./Person/PersonLifeCycle.js";
 
 class PersonsLifeCycle extends Component {
 //      static getDerivedStateFromProps(props, state) {
-//     console.log('[PersonsLifeCycle.js] getDerivedStateFromProps');
+//     console.log('[Persons_LC.js] getDerivedStateFromProps');
 //     return state;
 //   }
 
   // componentWillReceiveProps(props) {
-  //   console.log('[PersonsLifeCycle.js] componentWillReceiveProps', props);
+  //   console.log('[Persons_LC.js] componentWillReceiveProps', props);
   // }
 
-//   shouldComponentUpdate(nextProps, nextState) {
-//     console.log('[PersonsLifeCycle.js] shouldComponentUpdate');
-//     return true;
-//   }
+  shouldComponentUpdate(nextProps, nextState) {
+  
+    if(nextProps.persons[0].name !== this.props.persons[0].name){
+      console.log('[Persons_LC.js] shouldComponentUpdate and its going to updated');
+      return true;
+    }
+    console.log('[PersonsLifeCycle.js]  shouldComponentUpdate and its not going updated');
+    return false ;
+  }
 
 //   getSnapshotBeforeUpdate(prevProps, prevState) {
-//     console.log('[PersonsLifeCycle.js] getSnapshotBeforeUpdate');
+//     console.log('[Persons_LC.js] getSnapshotBeforeUpdate');
 //     return { message: 'Snapshot!' };
 //   }
 //   componentDidUpdate(prevProps, prevState, snapshot) {
-//     console.log('[PersonsLifeCycle.js] componentDidUpdate');
+//     console.log('[Persons_LC.js] componentDidUpdate');
 //     console.log(snapshot);
 //   }
 // componentWillUnmount(){
-//   console.log('[PersonsLifeCycle.js] componentWillUnmount');
+//   console.log('[Persons_LC.js] componentWillUnmount');
 // }
   render() {
-    //console.log('[PersonsLifeCycle.js] rendering...');
+    //console.log('[Persons_LC.js] rendering...');
     return this.props.persons.map((person, index) => {
       return (
         <Person
