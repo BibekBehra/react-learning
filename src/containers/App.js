@@ -14,7 +14,8 @@ class App extends Component {
       { id: 2, name: "vivek", age: "24" },
       { id: 3, name: "Viku", age: "29" }
     ],
-    showPerson: false
+    showPerson: false,
+    showCockpit:false
   };
   static getDerivedStateFromProps(props,state){
     console.log('[App.js] inside getDerivedStateFromProps')
@@ -65,19 +66,25 @@ class App extends Component {
     const doesShow = this.state.showPerson;
     this.setState({ showPerson: !doesShow });
   };
+  toogleCockpitHandler = () => {
+    const doesShow = this.state.showCockpit;
+    this.setState({ showCockpit: !doesShow });
+  };
   render() {
     console.log('[App.js] rendering');
     let persons = null;
     let cockpit = null;
-    cockpit = (
-      <Cockpit
-        title={this.props.apptitle}
-        showPerson={this.state.showPerson}
-        persons={this.state.persons}
-        clicked={this.switchNameHandler}
-        toogled={this.tooglePersonHandler}
-      />
-    );
+    if (this.state.showCockpit) {
+      cockpit = (
+        <Cockpit
+          title={this.props.apptitle}
+          showPerson={this.state.showPerson}
+          persons={this.state.persons}
+          clicked={this.switchNameHandler}
+          toogled={this.tooglePersonHandler}
+        />
+      );
+    }
     if (this.state.showPerson) {
       persons = (
         <Persons
@@ -89,6 +96,7 @@ class App extends Component {
     }
     return (
       <div className={classes.App}>
+        <button className={classes.Red}  onClick={this.toogleCockpitHandler}> toogleCockpit</button>
         {cockpit}
         {persons}
       </div>
