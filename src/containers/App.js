@@ -12,9 +12,9 @@ class App extends Component {
   }
   state = {
     persons: [
-      { id: 1, name: "Bibek", age: "22" },
-      { id: 2, name: "vivek", age: "24" },
-      { id: 3, name: "Viku", age: "29" }
+      { id: 1, name: "Bibek", age: 22 },
+      { id: 2, name: "vivek", age: 24 },
+      { id: 3, name: "Viku", age: 9 }
     ],
     showPerson: false,
     showCockpit: false,
@@ -24,9 +24,9 @@ class App extends Component {
   switchNameHandler = newName => {
     this.setState({
       persons: [
-        { id: 1, name: newName, age: "22" },
-        { id: 2, name: "vivek", age: "24" },
-        { id: 3, name: "Viku", age: "30" }
+        { id: 1, name: newName, age: 22 },
+        { id: 2, name: "vivek", age: 24 },
+        { id: 3, name: "Viku", age: 30 }
       ]
     });
   };
