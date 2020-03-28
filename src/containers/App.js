@@ -75,7 +75,6 @@ class App extends Component {
       cockpit = (
         <Cockpit
           title={this.props.apptitle}
-          showPerson={this.state.showPerson}
           personlength={this.state.persons.length}
           clicked={this.switchNameHandler}
           toogled={this.tooglePersonHandler}
@@ -88,7 +87,6 @@ class App extends Component {
           persons={this.state.persons}
           clicked={this.deletepersonHandler}
           changed={this.nameChangedHandler}
-          
         />
       );
     }
@@ -101,7 +99,8 @@ class App extends Component {
         <AuthContext.Provider 
             value={{
                 Authenticated:this.state.Authenticated,
-                login:this.LoginHandler
+                login:this.LoginHandler,
+                isShowPerson:this.state.showPerson
             }}>
         {cockpit}
         {persons}

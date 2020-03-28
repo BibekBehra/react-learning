@@ -10,8 +10,13 @@ class Person extends Component {
     super(props);
     this.inputElementRef = React.createRef();
   }
+  static contextType = AuthContext;
   componentDidMount() {
-    this.inputElementRef.current.focus();
+    console.log('isShowPerson:: '+this.context.isShowPerson)
+    if(this.context.isShowPerson==true){
+      this.inputElementRef.current.focus();
+    }
+    
   }
   render() {
     

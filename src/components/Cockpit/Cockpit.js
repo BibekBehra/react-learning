@@ -18,7 +18,7 @@ const StyledButton = styled.button`
 const Cockpit = props => {
   const tooglebuttonRef = useRef(null);
 
-  static contextType = AuthContext;
+
 
   useEffect(() => {
     console.log("[Cockpit.js] useEffect :: works like a CC lifecycle hook in FC");
