@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import Cockpit from "../components/Cockpit/CockpitLifeCycle.js";
+import Cockpit from "../components/Cockpit/Cockpit.js";
 import classes from "./App.module.css";
-import Persons from "../components/Persons/personsLifeCycle.js";
+import Persons from "../components/Persons/persons.js";
 import WithClass from "../hoc/WithClass.js";
 import Aux from "../hoc/Auxilary.js";
 
 class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     //console.log('[App.js] constructor');
   }
@@ -17,25 +17,9 @@ class App extends Component {
       { id: 3, name: "Viku", age: "29" }
     ],
     showPerson: false,
-    showCockpit:false
+    showCockpit: false
   };
-  // static getDerivedStateFromProps(props,state){
-  //   console.log('[App.js] inside getDerivedStateFromProps')
-  //   return state;
-  // }
-  // componentDidMount(){ //Not used so often
-  //   console.log('[App.js] componentDidMount');
-  // }
-  // componentWillMount(){ //Removed in future release
-  //   console.log('[App.js] inside componentWillMount');
-  // }
-  // shouldComponentUpdate(nextprops,nextState){
-  //   console.log('[App.js] shouldComponentUpdate');
-  //   return true;
-  // }
-  // componentDidUpdate(){
-  //   console.log('[App.js] componentDidUpdate');
-  // }
+   
   switchNameHandler = newName => {
     this.setState({
       persons: [
@@ -98,12 +82,14 @@ class App extends Component {
     }
     return (
       <Aux>
-        <button className={classes.Red}  onClick={this.toogleCockpitHandler}> toogleCockpit</button>
+        <button className={classes.Red} onClick={this.toogleCockpitHandler}>
+          toogleCockpit
+        </button>
         {cockpit}
         {persons}
-        </Aux>
+      </Aux>
     );
   }
 }
 
-export default WithClass(App,classes.App);
+export default WithClass(App, classes.App);
