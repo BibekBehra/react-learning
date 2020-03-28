@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 
 import styled from "styled-components";
 import classes from "./Cockpit.module.css";
@@ -16,15 +16,15 @@ const StyledButton = styled.button`
 `;
 
 const Cockpit = props => {
+  const tooglebuttonRef = useRef(null);
 
- useEffect(() => {
-    console.log("[Cockpit.js] useEffect"); 
-     
-  } ); 
-  
-  
+  useEffect(() => {
+    console.log("[Cockpit.js] useEffect");
+    tooglebuttonRef.current.click();
+  }, []);
+
   let btnClass = classes.simple;
-  if (props.personlength<=2) {
+  if (props.personlength <= 2) {
     btnClass = classes.Violet;
   }
   return (
@@ -35,7 +35,10 @@ const Cockpit = props => {
       <button className={btnClass} onClick={() => props.clicked("from button")}>
         switch name
       </button>
-      <StyledButton onClick={props.toogled}> togglePerson </StyledButton>
+      <StyledButton 
+          onClick={props.toogled}
+          ref={tooglebuttonRef}
+          > togglePerson </StyledButton>
     </div>
   );
 };
