@@ -18,7 +18,8 @@ class App extends Component {
     ],
     showPerson: false,
     showCockpit: false,
-    changeCounter:0
+    changeCounter:0,
+    Authenticated:false
   };
    
   switchNameHandler = newName => {
@@ -53,7 +54,10 @@ class App extends Component {
     updatedperson.splice(personIndex, 1); // splice update the array by removing the element from personIndex to 1
     this.setState({ persons: updatedperson });
   };
-
+  LoginHandler = () => {
+    const isAuthenticated = this.state.Authenticated;
+    this.setState({Authenticated : isAuthenticated });
+  };
   tooglePersonHandler = () => {
     const doesShow = this.state.showPerson;
     this.setState({ showPerson: !doesShow });
@@ -74,6 +78,7 @@ class App extends Component {
           personlength={this.state.persons.length}
           clicked={this.switchNameHandler}
           toogled={this.tooglePersonHandler}
+          logged={this.LoginHandler}
         />
       );
     }
@@ -83,6 +88,7 @@ class App extends Component {
           persons={this.state.persons}
           clicked={this.deletepersonHandler}
           changed={this.nameChangedHandler}
+          Authenticated = {this.state.isAuthenticated}
         />
       );
     }

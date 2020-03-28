@@ -14,7 +14,6 @@ const StyledButton = styled.button`
     color: black;
   }
 `;
-
 const Cockpit = props => {
   const tooglebuttonRef = useRef(null);
 
@@ -35,10 +34,12 @@ const Cockpit = props => {
       <button className={btnClass} onClick={() => props.clicked("from button")}>
         switch name
       </button>
-      <StyledButton 
-          onClick={props.toogled}
-          ref={tooglebuttonRef}
-          > togglePerson </StyledButton>
+      <button className={btnClass} onClick={props.logged}>
+        Log In
+      </button>
+      <StyledButton onClick={props.toogled} ref={tooglebuttonRef}>
+        togglePerson
+      </StyledButton>
     </div>
   );
 };

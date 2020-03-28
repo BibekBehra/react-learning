@@ -15,13 +15,17 @@
 
 .Cockpit button.Red {
   background-color: red;
+  border: 1px solid blue;
 }
 .Cockpit button.Violet {
   background-color: violet;
+  border: 1px solid blue;
+  padding: 16px;
 }
 .Cockpit button.Red:hover {
   background-color: salmon;
   color: black;
+  padding: 16px;
 }
 .Cockpit button.Violet:hover {
   background-color: salmon;
