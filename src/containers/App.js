@@ -17,7 +17,8 @@ class App extends Component {
       { id: 3, name: "Viku", age: "29" }
     ],
     showPerson: false,
-    showCockpit: false
+    showCockpit: false,
+    changeCounter:0
   };
    
   switchNameHandler = newName => {
@@ -38,7 +39,12 @@ class App extends Component {
     updatedperson.name = event.target.value;
     const newUpdatedArray = [...this.state.persons];
     newUpdatedArray[personIndex] = updatedperson;
-    this.setState({ persons: newUpdatedArray });
+    this.setState((prevState, props) => {
+      return {
+        persons: newUpdatedArray,
+        changeCounter: prevState.changeCounter + 1
+      };
+    });
   };
   deletepersonHandler = personIndex => {
     //const persons=this.state.persons //returns pointer to original persons array present in state. Hence directly mutates the state
