@@ -14,9 +14,10 @@ class Person  extends Component {
     this.inputElementRef.current.focus();
   }
   render() {
-    //console.log("[Person_LC.js] rendering...");
+    console.log("[Person_LC.js] rendering..."+this.props.isAuth);
     return (
       <Aux>
+        {this.props.isAuth==true?<p>Autenticated</p>:null}
         <p onClick={this.props.click}>
           I'm {this.props.name} and I am {this.props.age} years old!
         </p>

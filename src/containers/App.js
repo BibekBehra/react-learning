@@ -56,7 +56,7 @@ class App extends Component {
   };
   LoginHandler = () => {
     const isAuthenticated = this.state.Authenticated;
-    this.setState({Authenticated : isAuthenticated });
+    this.setState({Authenticated : !isAuthenticated });
   };
   tooglePersonHandler = () => {
     const doesShow = this.state.showPerson;
@@ -88,7 +88,7 @@ class App extends Component {
           persons={this.state.persons}
           clicked={this.deletepersonHandler}
           changed={this.nameChangedHandler}
-          Authenticated = {this.state.isAuthenticated}
+          Authenticated = {this.state.Authenticated}
         />
       );
     }
