@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 
 import styled from "styled-components";
 import classes from "./Cockpit.module.css";
+import AuthContext from "../../context/auth-context.js";
 
 const StyledButton = styled.button`
   background-color: green;
@@ -17,9 +18,11 @@ const StyledButton = styled.button`
 const Cockpit = props => {
   const tooglebuttonRef = useRef(null);
 
+  static contextType = AuthContext;
+
   useEffect(() => {
-    console.log("[Cockpit.js] useEffect");
-    tooglebuttonRef.current.click();
+    console.log("[Cockpit.js] useEffect :: works like a CC lifecycle hook in FC");
+    //tooglebuttonRef.current.click();
   }, []);
 
   let btnClass = classes.simple;
@@ -34,9 +37,15 @@ const Cockpit = props => {
       <button className={btnClass} onClick={() => props.clicked("from button")}>
         switch name
       </button>
-      <button className={btnClass} onClick={props.logged}>
-        Log In
-      </button>
+      <AuthContext.Consumer>
+        {
+          (context)=>{
+              return <button className={btnClass} onClick={context.login}>
+              Log In
+              </button>
+          }
+        }
+      </AuthContext.Consumer>
       <StyledButton onClick={props.toogled} ref={tooglebuttonRef}>
         togglePerson
       </StyledButton>

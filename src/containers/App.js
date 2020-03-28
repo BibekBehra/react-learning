@@ -4,7 +4,7 @@ import classes from "./App.module.css";
 import Persons from "../components/Persons/Persons.js";
 import WithClass from "../hoc/WithClass.js";
 import Aux from "../hoc/Auxilary.js";
-
+import AuthContext from "../context/auth-context.js";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -70,6 +70,7 @@ class App extends Component {
     //console.log('[App.js] rendering');
     let persons = null;
     let cockpit = null;
+    
     if (this.state.showCockpit) {
       cockpit = (
         <Cockpit
@@ -78,7 +79,6 @@ class App extends Component {
           personlength={this.state.persons.length}
           clicked={this.switchNameHandler}
           toogled={this.tooglePersonHandler}
-          logged={this.LoginHandler}
         />
       );
     }
@@ -88,17 +88,24 @@ class App extends Component {
           persons={this.state.persons}
           clicked={this.deletepersonHandler}
           changed={this.nameChangedHandler}
-          Authenticated = {this.state.Authenticated}
+          
         />
       );
     }
+    
     return (
       <Aux>
         <button className={classes.Red} onClick={this.toogleCockpitHandler}>
           toogleCockpit
         </button>
+        <AuthContext.Provider 
+            value={{
+                Authenticated:this.state.Authenticated,
+                login:this.LoginHandler
+            }}>
         {cockpit}
         {persons}
+        </AuthContext.Provider>
       </Aux>
     );
   }
