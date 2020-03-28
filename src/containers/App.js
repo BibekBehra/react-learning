@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Cockpit from "../components/Cockpit/Cockpit.js";
 import classes from "./App.module.css";
-import Persons from "../components/Persons/persons.js";
+import Persons from "../components/Persons/Persons.js";
 import WithClass from "../hoc/WithClass.js";
 import Aux from "../hoc/Auxilary.js";
 
