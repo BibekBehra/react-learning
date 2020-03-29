@@ -1,25 +1,15 @@
 import React, { Component } from "react";
- 
+import Layout from "../component/Layout/Layout.js";
+
 class App extends Component {
-  
-  state = {
-    persons: [
-      { id: 1, name: "Bibek", age: 22 },
-      { id: 2, name: "vivek", age: 24 },
-      { id: 3, name: "Viku", age: 9 }
-    ] 
-  };
-   
-  
   render() {
-    //console.log('[App.js] rendering');
-    let persons = null;
-  
-    
     return (
-      <p>Hello</p>
+      <div>
+        <Layout>
+          <p>Test</p>
+        </Layout>
+      </div>
     );
   }
 }
-
 export default App;
