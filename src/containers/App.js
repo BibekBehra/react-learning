@@ -1,15 +1,21 @@
 import React, { Component } from "react";
 import Layout from "../component/Layout/Layout.js";
-import BurgerBuilder from '../containers/BurgerBuilder/BurgerBuilder.js';
+import BurgerBuilder from "../containers/BurgerBuilder/BurgerBuilder.js";
+import AuthContext from "../context/auth-context.js";
+import Aux from "../hoc/Auxilary.js";
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <Layout>
-         <BurgerBuilder />
-        </Layout>
-      </div>
+      <Aux>
+         
+        <div>
+          <Layout>
+            <BurgerBuilder />
+          </Layout>
+        </div>
+         
+      </Aux>
     );
   }
 }
