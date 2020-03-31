@@ -1,9 +1,9 @@
 import React from 'react';
  
 const  authContext = React.createContext({
-    Authenticated:false,
-    isShowPerson:false,
-    Additem:()=>{},
+    totalPrice:4,
+    disabledInfo:'',
+    Additem:(type)=>{},
     RemoveItem:()=>{}
 });
 
