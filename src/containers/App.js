@@ -1,10 +1,9 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import Layout from "../component/Layout/Layout.js";
 import BurgerBuilder from "../containers/BurgerBuilder/BurgerBuilder.js";
-
 import Aux from "../hoc/Auxilary.js";
 
-class App extends Component {
+class App extends PureComponent {
   render() {
     return (
       <Aux>

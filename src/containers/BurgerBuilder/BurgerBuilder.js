@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import Aux from "../../hoc/Auxilary.js";
 import Burger from "../../component/Burger/Burger.js";
 import BuildControls from "../../component/Burger/BuildControls/BuildControls.js";
@@ -12,7 +12,7 @@ const INGREDIENT_PRICES = {
   bacon: 0.7
 };
 
-class BurgerBuilder extends Component {
+class BurgerBuilder extends PureComponent {
   state = {
     ingredients: {
       salad: 1,

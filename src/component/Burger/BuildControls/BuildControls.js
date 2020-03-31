@@ -29,4 +29,4 @@ const BuildControls = props => {
   );
 };
 
-export default BuildControls;
+export default  React.memo(BuildControls);

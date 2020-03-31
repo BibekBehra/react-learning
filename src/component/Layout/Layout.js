@@ -9,4 +9,4 @@ const layout = props => (
   </Aux>
 );
 
-export default layout;
+export default  React.memo(layout);
