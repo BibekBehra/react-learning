@@ -13,7 +13,7 @@ const BuildControls = props => {
   const authContext = useContext(AuthContext);
   return (
     <div className={classes.BuildControls}>
-      Total Price :{authContext.totalPrice}
+      <p>Total Price : <strong>{authContext.totalPrice.toFixed(2)}</strong></p>
       {controls.map((control, index) => {
         return (
           <BuildControl
@@ -25,6 +25,7 @@ const BuildControls = props => {
           />
         );
       })}
+       <button classes={classes.OrderButton} disabled={!authContext.purchasable}>ORDER NOW</button>
     </div>
   );
 };

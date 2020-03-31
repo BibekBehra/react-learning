@@ -15,38 +15,54 @@ const INGREDIENT_PRICES = {
 class BurgerBuilder extends PureComponent {
   state = {
     ingredients: {
-      salad: 1,
-      bacon: 1,
-      cheese: 2,
-      meat: 2
+      salad: 0,
+      bacon: 0,
+      cheese: 0,
+      meat: 0
     },
     totalPrice: 10,
     purchasable: false
   };
   AddItemHandler = type => {
     //const oldIngredient = this.state.ingredients; // swallow copy
-    const updatedIngredient = { ...this.state.ingredients }; // Deep copy
-    const updatedCount = updatedIngredient[type] + 1;
-    updatedIngredient[type] = updatedCount;
-    const updatedPrice = INGREDIENT_PRICES[type] + this.state.totalPrice;
-    this.setState({ ingredients: updatedIngredient, totalPrice: updatedPrice });
+    const oldCount = this.state.ingredients[type];
+        const updatedCount = oldCount + 1;
+        const updatedIngredients = {
+            ...this.state.ingredients
+        };
+        updatedIngredients[type] = updatedCount;
+        const priceAddition = INGREDIENT_PRICES[type];
+        const oldPrice = this.state.totalPrice;
+        const newPrice = oldPrice + priceAddition;
+        this.setState( { totalPrice: newPrice, ingredients: updatedIngredients } );
+        this.updatePurchaseState(updatedIngredients);
   };
-  // updatePurchaseState (ingredients) {
-  //   const sum = Object.keys( ingredients )
-  //       .map( igKey => {
-  //           return ingredients[igKey];
-  //       } )
-  //       .reduce( ( sum, el ) => {
-  //           return sum + el;
-  //       }, 0 );
-  //   this.setState( { purchasable: sum > 0 } );
-  // }
+  
+  updatePurchaseState (ingredients) {
+    const sum = Object.keys( ingredients )
+        .map( igKey => {
+            return ingredients[igKey];
+        } )
+        .reduce( ( sum, el ) => {
+            return sum + el;
+        }, 0 );
+    this.setState( { purchasable: sum > 0 } );
+}
   RemoveItemHandler = type => {
-    const updatedIngredient = { ...this.state.ingredients }; // Deep copy
-    const updatedCount = updatedIngredient[type] - 1;
-    updatedIngredient[type] = updatedCount;
-    const updatedPrice = INGREDIENT_PRICES[type] - this.state.totalPrice;
-    this.setState({ ingredients: updatedIngredient, totalPrice: updatedPrice });
+    const oldCount = this.state.ingredients[type];
+        if ( oldCount <= 0 ) {
+            return;
+        }
+        const updatedCount = oldCount - 1;
+        const updatedIngredients = {
+            ...this.state.ingredients
+        };
+        updatedIngredients[type] = updatedCount;
+        const priceDeduction = INGREDIENT_PRICES[type];
+        const oldPrice = this.state.totalPrice;
+        const newPrice = oldPrice - priceDeduction;
+        this.setState( { totalPrice: newPrice, ingredients: updatedIngredients } );
+        this.updatePurchaseState(updatedIngredients);
   };
   render() {
     debugger;
@@ -63,7 +79,8 @@ class BurgerBuilder extends PureComponent {
             totalPrice: this.state.totalPrice,
             Additem: this.AddItemHandler,
             RemoveItem: this.RemoveItemHandler,
-            disabledInfo: disabledInfo
+            disabledInfo: disabledInfo,
+            purchasable:this.state.purchasable
           }}
         >
           <Burger ingredients={this.state.ingredients} />
