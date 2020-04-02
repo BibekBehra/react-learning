@@ -1,10 +1,9 @@
-import React, { useContext } from 'react';
-import classes from './Backdrop.module.css';
-import AuthContext from '../../context/auth-context.js';
+import React from 'react';
 
-const BackDrop = (prop) => {
-   const authContext = useContext(AuthContext);
-//    authContext.show ? <div className={classes.Backdrop} onClick={authContext.clicked}></div> : null
-};
- 
-export default BackDrop;
+import classes from './Backdrop.module.css';
+
+const backdrop = (props) => (
+    props.show ? <div className={classes.Backdrop} onClick={props.clicked}></div> : null
+);
+
+export default backdrop;

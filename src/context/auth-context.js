@@ -7,8 +7,10 @@ const  authContext = React.createContext({
     show:false,
     Additem:(type)=>{},
     RemoveItem:()=>{},
-    ordered:()=>{},
+    showOrderSummary:()=>{},
+    removeOrderSummary:()=>{},
     ingredients:''
+    
 });
 
  export default authContext;

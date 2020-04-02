@@ -25,7 +25,7 @@ const BuildControls = props => {
           />
         );
       })}
-       <button classes={classes.OrderButton} disabled={!authContext.purchasable} onClick={authContext.ordered}>ORDER NOW</button>
+       <button classes={classes.OrderButton} disabled={!authContext.purchasable} onClick={authContext.showOrderSummary}>ORDER NOW</button>
     </div>
   );
 };

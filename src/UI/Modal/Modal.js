@@ -7,7 +7,10 @@ const Modal = props => {
   const authContext = useContext(AuthContext);
   return (
     <Aux>
-      {/* <BackDrop show={authContext.show} clicked></BackDrop> */}
+      <BackDrop
+        show={authContext.show}
+        clicked={authContext.removeOrderSummary}
+      ></BackDrop>
       <div
         className={classes.Modal}
         style={{
@@ -15,7 +18,7 @@ const Modal = props => {
           opacity: authContext.show ? "1" : "0"
         }}
       >
-        >{props.children}
+        {props.children}
       </div>
     </Aux>
   );
