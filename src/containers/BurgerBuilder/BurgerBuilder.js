@@ -84,16 +84,16 @@ class BurgerBuilder extends PureComponent {
       <Aux>
         <AuthContext.Provider
           value={{
-            totalPrice: this.state.totalPrice,
-            Additem: this.AddItemHandler,
-            RemoveItem: this.RemoveItemHandler,
-            showOrderSummary: this.showOrderSummaryHandler, // cale
-            removeOrderSummary: this.removeOrderSummaryHandler,
+            totalPrice: this.state.totalPrice, // Shows total price of added items. Used inside Ordersmmmary as well as BuildControl
+            Additem: this.AddItemHandler,      //Used inside Buildcontrol to add items in burger like meat,cheese etc which will update CSS
+            RemoveItem: this.RemoveItemHandler, //Used inside Buildcontrol to remove items in burger like meat,cheese etc which will update CSS
+            showOrderSummary: this.showOrderSummaryHandler, // Tweak showOrderSummary state variable so that accoridnly Modal/order summary is displayed once click on ordernow button
+            removeOrderSummary: this.removeOrderSummaryHandler, // Tweak showOrderSummary state variable so that accoridingly Modal/order summary is hidden once click on cancel button in order summary and on click on backdrop 
             purchaseContinued: this.purchaseContinueHandler,
-            show: this.state.showOrderSummary,
-            disabledInfo: disabledInfo,
-            purchasable: this.state.purchasable,
-            ingredients: this.state.ingredients
+            show: this.state.showOrderSummary,                  //showOrderSummary state variable which decides to show/hide Modal/Order summary
+            disabledInfo: disabledInfo,                         //To disable Less as per the count of ingredient in ingredient state variable. Disable if <=0  
+            purchasable: this.state.purchasable,                //To enable/disable order now button           
+            ingredients: this.state.ingredients                 //Pass ingredinets state variable to Burger.js to dynamically show burgeringredients
           }}
         >
           <Modal>
