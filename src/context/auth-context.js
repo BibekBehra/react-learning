@@ -9,6 +9,7 @@ const  authContext = React.createContext({
     RemoveItem:()=>{},
     showOrderSummary:()=>{},
     removeOrderSummary:()=>{},
+    purchaseContinued:()=>{},
     ingredients:''
     
 });

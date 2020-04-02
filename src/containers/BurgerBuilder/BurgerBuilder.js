@@ -46,7 +46,9 @@ class BurgerBuilder extends PureComponent {
   removeOrderSummaryHandler = () => {
     this.setState({ showOrderSummary: false });
   };
- 
+  purchaseContinueHandler = () => {
+    alert("please continue");
+  };
   updatePurchaseState(ingredients) {
     const sum = Object.keys(ingredients)
       .map(igKey => {
@@ -85,8 +87,9 @@ class BurgerBuilder extends PureComponent {
             totalPrice: this.state.totalPrice,
             Additem: this.AddItemHandler,
             RemoveItem: this.RemoveItemHandler,
-            showOrderSummary: this.showOrderSummaryHandler,
-            removeOrderSummary:this.removeOrderSummaryHandler,
+            showOrderSummary: this.showOrderSummaryHandler, // cale
+            removeOrderSummary: this.removeOrderSummaryHandler,
+            purchaseContinued: this.purchaseContinueHandler,
             show: this.state.showOrderSummary,
             disabledInfo: disabledInfo,
             purchasable: this.state.purchasable,
@@ -96,7 +99,7 @@ class BurgerBuilder extends PureComponent {
           <Modal>
             <OrderSummmary />
           </Modal>
-          <Burger/>
+          <Burger />
           <BuildControls />
         </AuthContext.Provider>
       </Aux>

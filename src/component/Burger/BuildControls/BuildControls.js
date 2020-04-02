@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import classes from "../BuildControls/BuildControls.module.css";
 import BuildControl from "./BuildControl/BuildControl.js";
 import AuthContext from "../../../context/auth-context.js";
+import Aux from '../../../hoc/Auxilary.js';
 
 const controls = [
   { label: "Salad", type: "salad" },
@@ -12,6 +13,7 @@ const controls = [
 const BuildControls = props => {
   const authContext = useContext(AuthContext);
   return (
+    <Aux>
     <div className={classes.BuildControls}>
       <p>Total Price : <strong>{authContext.totalPrice.toFixed(2)}</strong></p>
       {controls.map((control, index) => {
@@ -25,8 +27,9 @@ const BuildControls = props => {
           />
         );
       })}
-       <button classes={classes.OrderButton} disabled={!authContext.purchasable} onClick={authContext.showOrderSummary}>ORDER NOW</button>
+    <button classes={classes.OrderButton} disabled={!authContext.purchasable} onClick={authContext.showOrderSummary}>ORDER NOW</button>
     </div>
+    </Aux>
   );
 };
 
