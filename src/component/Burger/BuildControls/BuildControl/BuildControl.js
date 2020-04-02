@@ -1,10 +1,8 @@
-import React, { useContext } from "react";
+import React  from "react";
 import classes from "../BuildControl/BuildControl.module.css";
  
 
 const BuildControl = props => {
-   
-
   return (
     <div className={classes.BuildControl}>
       <div className={classes.label}>{props.label}</div>

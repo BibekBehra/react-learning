@@ -1,12 +1,14 @@
-import React from 'react';
+import React,{useContext} from 'react';
 
 import classes from './Burger.module.css';
 import BurgerIngredient from './BurgerIngredient/BurgerIngredient.js';
+import AuthContext from '../../context/auth-context.js';
 
-const burger = ( props ) => {
-    let transformedIngredients = Object.keys( props.ingredients )
+const Burger =  props  => {
+    const authContext = useContext(AuthContext);
+    let transformedIngredients = Object.keys( authContext.ingredients )
         .map( igKey => {
-            return [...Array( props.ingredients[igKey] )].map( ( _, i ) => { // To understand this check teh difference between const arr=[Array(3)]; and const arr=[...Array(3)]; in jsbin
+            return [...Array( authContext.ingredients[igKey] )].map( ( _, i ) => { // To understand this check teh difference between const arr=[Array(3)]; and const arr=[...Array(3)]; in jsbin
                 return <BurgerIngredient key={igKey + i} type={igKey} />;
             } );
         } )
@@ -26,4 +28,4 @@ const burger = ( props ) => {
     );
 };
 
-export default React.memo(burger);
+export default React.memo(Burger);
