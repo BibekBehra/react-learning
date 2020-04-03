@@ -20,7 +20,7 @@ const OrderSummary = props => {
       <ul>{ingredientSummary}</ul>
       <p>continue to checkout?</p>
 
-  <p>Total Price</p><span style={{ textTransform: "capitalize" }}>{authContext.totalPrice}</span><p></p>
+  <p>Total Price</p><span style={{ textTransform: "capitalize" }}>{authContext.totalPrice.toFixed(2)}</span><p></p>
 
       <Button btnType="Danger" clicked={authContext.removeOrderSummary}>CANCEL</Button>
       <Button btnType="Success" clicked={authContext.purchaseContinued}>CONTINUE</Button>
