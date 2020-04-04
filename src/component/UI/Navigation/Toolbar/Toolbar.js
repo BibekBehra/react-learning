@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './Toolbar.module.css';
-import Logo from '../../../component/Logo/Logo.js';
+import Logo from '../../../../component/Logo/Logo.js';
 import NavigationItems from '../NavigationItems/NavigationItems.js';
 
 const Toolbar = (props) => (

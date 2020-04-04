@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import classes from "./modal.module.css";
-import AuthContext from "../../context/auth-context.js";
+import AuthContext from "../../../context/auth-context.js";
 import BackDrop from "../Backdrop/Backdrop.js";
-import Aux from "../../hoc/Auxilary.js";
+import Aux from '../../../hoc/Auxilary.js';
 const Modal = props => {
   const authContext = useContext(AuthContext);
   return (

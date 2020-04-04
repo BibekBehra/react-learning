@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import Aux from "../../../hoc/Auxilary.js";
 import AuthContext from "../../../context/auth-context.js";
-import Button from '../../../UI/Button/Button.js';
+import Button from '../../UI/Button/Button.js';
 
 const OrderSummary = props => {
   const authContext = useContext(AuthContext);

@@ -4,7 +4,7 @@ import Burger from "../../component/Burger/Burger.js";
 import BuildControls from "../../component/Burger/BuildControls/BuildControls.js";
 import AuthContext from "../../context/auth-context.js";
 import proptypes from "prop-types";
-import Modal from "../../UI/Modal/Modal.js";
+import Modal from '../../component/UI/Modal/Modal.js';
 import OrderSummmary from "../../component/Burger/OrderSummary/OrderSummary.js";
 
 const INGREDIENT_PRICES = {
