@@ -15,9 +15,6 @@ const BuildControls = props => {
   return (
     <Aux>
       <div className={classes.BuildControls}>
-        <p>
-          Total Price : <strong>{authContext.totalPrice.toFixed(2)}</strong>
-        </p>
         {controls.map((control, index) => {
           return (
             <BuildControl
