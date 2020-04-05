@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import Layout from "../component/Layout/Layout.js";
+import Layout from "./Layout/Layout.js";
 import BurgerBuilder from "../containers/BurgerBuilder/BurgerBuilder.js";
 import Aux from "../hoc/Auxilary.js";
 

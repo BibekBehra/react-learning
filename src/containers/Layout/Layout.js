@@ -1,8 +1,8 @@
 import React, { PureComponent } from "react";
 import Aux from "../../hoc/Auxilary.js";
 import classes from "./Layout.module.css";
-import ToolBar from "../UI/Navigation/Toolbar/Toolbar.js";
-import SideDrawer from "../UI/Navigation/SideDrawer/SideDrawer.js";
+import ToolBar from "../../component/UI/Navigation/Toolbar/Toolbar.js";
+import SideDrawer from "../../component/UI/Navigation/SideDrawer/SideDrawer.js";
 
 class Layout extends PureComponent {
   state = {
