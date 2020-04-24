@@ -6,6 +6,7 @@ import AuthContext from "../../context/auth-context.js";
 import proptypes from "prop-types";
 import Modal from '../../component/UI/Modal/Modal.js';
 import OrderSummmary from "../../component/Burger/OrderSummary/OrderSummary.js";
+import axios from '../../axios-order.js'
 
 const INGREDIENT_PRICES = {
   salad: 0.5,
@@ -47,7 +48,21 @@ class BurgerBuilder extends PureComponent {
     this.setState({ showOrderSummary: false });
   };
   purchaseContinueHandler = () => {
-    alert("please continue");
+    const order={
+      ingredients:this.state.ingredients,
+      price:this.state.totalPrice,
+      customer:{
+        name:'Bibek Behera',
+        address:{
+          street:'Bellandur',
+          zipCode:'560103',
+          country:'India'
+        },
+        email:'Bibekk.Behera@gmail.com'
+      }
+    }
+    axios.post('/orders.json',order).
+    then(response=>console.log(response)).catch(error=>console.log(error));
   };
   updatePurchaseState(ingredients) {
     const sum = Object.keys(ingredients)
