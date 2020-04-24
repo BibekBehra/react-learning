@@ -20,7 +20,7 @@ class FullPost extends Component {
       (this.state.loadedPost && this.props.id !== this.state.loadedPost.id)
     ) {
       axios
-        .get("https://jtypicode.com/posts/" + this.props.id)
+        .get("https://jsonplaceholder.com/posts/" + this.props.id)
         .then((response) => {
           const updatedPosts = response.data;
           this.setState({ loadedPost: updatedPosts });
