@@ -42,9 +42,7 @@ class Blog extends Component {
       <div>
         <section className="Posts">{posts}</section>
         <section>
-          <FullPost id={this.state.selectedPostId}
-          post={this.state.posts[this.state.selectedPostId-1]}
-          />
+          <FullPost id={this.state.selectedPostId}/>
         </section>
         <section>
           <NewPost />
