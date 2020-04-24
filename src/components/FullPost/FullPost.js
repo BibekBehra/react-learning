@@ -5,6 +5,7 @@ import "./FullPost.css";
 class FullPost extends Component {
   state = {
     loadedPost: null,
+    error:false
   };
   deleteHandler = () => {
     axios
@@ -15,21 +16,26 @@ class FullPost extends Component {
   };
   componentDidUpdate() {
     if (
-      (this.props.id && !this.state.loadedPost) ||
+      (this.props.id && !this.state.loadedPost && !this.state.error) ||
       (this.state.loadedPost && this.props.id !== this.state.loadedPost.id)
     ) {
       axios
-        .get("https://jsonplaceholder.typicode.com/posts/" + this.props.id)
+        .get("https://jtypicode.com/posts/" + this.props.id)
         .then((response) => {
           const updatedPosts = response.data;
           this.setState({ loadedPost: updatedPosts });
-        });
+        }).catch(error=>{
+          this.setState({error:true})
+        });;
     }
   }
   render(props) {
     let post = <p style={{ textAlign: "center" }}>Please select a Post!</p>;
     if (this.props.id) {
       post = <p style={{ textAlign: "center" }}>Loading !</p>;
+    }
+    if(this.state.error){
+      post = <p style={{ textAlign: "center" }}>something went wrong!</p>;
     }
     if (this.state.loadedPost) {
       post = (
