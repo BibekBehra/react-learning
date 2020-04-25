@@ -7,6 +7,7 @@ import proptypes from "prop-types";
 import Modal from '../../component/UI/Modal/Modal.js';
 import OrderSummmary from "../../component/Burger/OrderSummary/OrderSummary.js";
 import axios from '../../axios-order.js'
+import Spinner from '../../component/UI/spinner/Spinner.js';
 
 const INGREDIENT_PRICES = {
   salad: 0.5,
@@ -25,7 +26,8 @@ class BurgerBuilder extends PureComponent {
     },
     totalPrice: 10,
     purchasable: false,
-    showOrderSummary: false
+    showOrderSummary: false,
+    loading:false
   };
   AddItemHandler = type => {
     //const oldIngredient = this.state.ingredients; // swallow copy
@@ -48,6 +50,7 @@ class BurgerBuilder extends PureComponent {
     this.setState({ showOrderSummary: false });
   };
   purchaseContinueHandler = () => {
+    this.setState({loading:true});
     const order={
       ingredients:this.state.ingredients,
       price:this.state.totalPrice,
@@ -62,7 +65,12 @@ class BurgerBuilder extends PureComponent {
       }
     }
     axios.post('/orders.json',order).
-    then(response=>console.log(response)).catch(error=>console.log(error));
+    then(response=>{
+      //console.log(response)
+      this.setState({showOrderSummary:false,loading:false});
+    }).catch(error=>{
+      this.setState({showOrderSummary:false,loading:false});
+    });
   };
   updatePurchaseState(ingredients) {
     const sum = Object.keys(ingredients)
@@ -95,6 +103,8 @@ class BurgerBuilder extends PureComponent {
     for (let key in disabledInfo) {
       disabledInfo[key] = disabledInfo[key] > 0;
     }
+    let ordersummary = this.state.loading?<Spinner/>: <OrderSummmary />
+    
     return (
       <Aux>
         <AuthContext.Provider
@@ -112,7 +122,7 @@ class BurgerBuilder extends PureComponent {
           }}
         >
           <Modal>
-            <OrderSummmary />
+          {ordersummary}
           </Modal>
           <Burger />
           <BuildControls />
