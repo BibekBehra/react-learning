@@ -22,20 +22,18 @@ class BurgerBuilder extends PureComponent {
     totalPrice: 10,
     purchasable: false,
     showOrderSummary: false,
-    loading: false,
+    loading: false 
+     
   };
 
   componentDidMount() {
     axios
-    .get("/ingredients.json")
-    .then((response) => {
-      //console.log(response)
-      this.setState({ ingredients: response.data });
-    })
-    .catch((error) => {
-      console.log('Test');
-      //this.setState({ error.messa});
-    });
+      .get("/ingredients")
+      .then((response) => {
+        //console.log(response)
+        this.setState({ ingredients: response.data });
+      })
+       
   }
   AddItemHandler = (type) => {
     //const oldIngredient = this.state.ingredients; // swallow copy
@@ -109,13 +107,26 @@ class BurgerBuilder extends PureComponent {
     this.updatePurchaseState(updatedIngredients);
   };
   render() {
-    debugger;
     const disabledInfo = { ...this.state.ingredients };
     for (let key in disabledInfo) {
       disabledInfo[key] = disabledInfo[key] > 0;
     }
-    let ordersummary = this.state.loading ? <Spinner /> : <OrderSummmary />;
+    let  ordersummary=null;
+    let burger= <Spinner/>  
 
+    if (this.state.ingredients) {
+      burger = (
+        <Aux>
+          <Burger />
+          <BuildControls />
+          </Aux>
+      );
+      ordersummary=<OrderSummmary />;
+    }
+    
+    if(this.state.loading){
+      ordersummary=<Spinner/>
+    }
     return (
       <Aux>
         <AuthContext.Provider
@@ -132,15 +143,15 @@ class BurgerBuilder extends PureComponent {
             ingredients: this.state.ingredients, //Pass ingredinets state variable to Burger.js to dynamically show burgeringredients
           }}
         >
-          <Modal
-            show={this.state.showOrderSummary}
-            removeOrderSummary={this.removeOrderSummaryHandler}
-          >
-            {ordersummary}
-          </Modal>
-          <Burger />
-          <BuildControls />
-        </AuthContext.Provider>
+        <Modal
+          show={this.state.showOrderSummary}
+          removeOrderSummary={this.removeOrderSummaryHandler}
+        >
+          {ordersummary}
+        </Modal>
+        {burger}
+       
+    </AuthContext.Provider>
       </Aux>
     );
   }
