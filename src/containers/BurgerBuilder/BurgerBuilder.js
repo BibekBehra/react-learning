@@ -18,17 +18,25 @@ const INGREDIENT_PRICES = {
 
 class BurgerBuilder extends PureComponent {
   state = {
-    ingredients: {
-      salad: 0,
-      bacon: 0,
-      cheese: 0,
-      meat: 0,
-    },
+    ingredients: null,
     totalPrice: 10,
     purchasable: false,
     showOrderSummary: false,
     loading: false,
   };
+
+  componentDidMount() {
+    axios
+    .get("/ingredients.json")
+    .then((response) => {
+      //console.log(response)
+      this.setState({ ingredients: response.data });
+    })
+    .catch((error) => {
+      console.log('Test');
+      //this.setState({ error.messa});
+    });
+  }
   AddItemHandler = (type) => {
     //const oldIngredient = this.state.ingredients; // swallow copy
     const oldCount = this.state.ingredients[type];
@@ -44,11 +52,9 @@ class BurgerBuilder extends PureComponent {
     this.updatePurchaseState(updatedIngredients);
   };
   showOrderSummaryHandler = () => {
-    debugger;
     this.setState({ showOrderSummary: true });
   };
   removeOrderSummaryHandler = () => {
-    debugger;
     this.setState({ showOrderSummary: false });
   };
   purchaseContinueHandler = () => {
@@ -67,7 +73,7 @@ class BurgerBuilder extends PureComponent {
       },
     };
     axios
-      .post("/orders. ", order)
+      .post("/orders.json", order)
       .then((response) => {
         //console.log(response)
         this.setState({ showOrderSummary: false, loading: false });
@@ -103,6 +109,7 @@ class BurgerBuilder extends PureComponent {
     this.updatePurchaseState(updatedIngredients);
   };
   render() {
+    debugger;
     const disabledInfo = { ...this.state.ingredients };
     for (let key in disabledInfo) {
       disabledInfo[key] = disabledInfo[key] > 0;
