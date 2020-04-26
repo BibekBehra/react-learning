@@ -142,7 +142,7 @@ class BurgerBuilder extends PureComponent {
             show: this.state.showOrderSummary, //showOrderSummary state variable which decides to show/hide Modal/Order summary
             disabledInfo: disabledInfo, //To disable Less as per the count of ingredient in ingredient state variable. Disable if <=0
             purchasable: this.state.purchasable, //To enable/disable order now button
-            ingredients: this.state.ingredients, //Pass ingredinets state variable to Burger.js to dynamically show burgeringredients
+            ingredients: this.state.ingredients, 
           }}
         >
         <Modal

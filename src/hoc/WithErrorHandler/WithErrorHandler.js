@@ -4,17 +4,21 @@ import Aux from "../../hoc/Auxilary.js";
 
 const withErrorHandler = (WrappedComponent, axios) => {
   return class extends Component {
+    constructor(){
+      super()
+      axios.interceptors.request.use(req => {
+        this.setState({error: null});
+        return req;
+    });
+    axios.interceptors.response.use(res => res, error => {
+        this.setState({error: error});
+    });
+    }
     state = {
         error: null
     }
     componentDidMount () {
-        axios.interceptors.request.use(req => {
-            this.setState({error: null});
-            return req;
-        });
-        axios.interceptors.response.use(res => res, error => {
-            this.setState({error: error});
-        });
+      
     }
 
     errorConfirmedHandler = () => {
