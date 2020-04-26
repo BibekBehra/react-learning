@@ -28,7 +28,7 @@ class BurgerBuilder extends PureComponent {
 
   componentDidMount() {
     axios
-      .get("/ingredients")
+      .get("/ingredients.json")
       .then((response) => {
         //console.log(response)
         this.setState({ ingredients: response.data });
