@@ -9,10 +9,10 @@ import axios from "../../axios.js";
 class Blog extends Component {
   state = {
     posts: [],
-    selectedPostId:null,
+    selectedPostId: null,
   };
   componentDidMount() {
-    axios.get('/posts').then((response) => {
+    axios.get("/posts").then((response) => {
       const posts = response.data.slice(0, 4);
       const updatedPosts = posts.map((post) => {
         return {
@@ -37,24 +37,22 @@ class Blog extends Component {
         ></Post>
       );
     });
-    
+
     return (
       <div className="Blogs">
         <header>
           <nav>
             <ul>
-              <li><a href="/">Home</a></li>
-              <li><a href="/">New Post</a></li>
+              <li>
+                <a href="/">Home</a>
+              </li>
+              <li>
+                <a href="/">New Post</a>
+              </li>
             </ul>
-            </nav>
+          </nav>
         </header>
         <section className="Posts">{posts}</section>
-        <section>
-          <FullPost id={this.state.selectedPostId}/>
-        </section>
-        <section>
-          <NewPost />
-        </section>
       </div>
     );
   }
