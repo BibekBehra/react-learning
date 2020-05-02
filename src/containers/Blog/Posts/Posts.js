@@ -4,10 +4,14 @@ import Post from "../../../components/Post/Post.js";
 import classes from "./Posts.css";
 
 class Posts extends Component {
-  state = {
-    posts: [],
-    selectedPostId: null,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      posts: [],
+      selectedPostId: null,
+    };
+  }
+  
   componentDidMount() {
     axios.get("/posts").then((response) => {
       const posts = response.data.slice(0, 4);

@@ -4,11 +4,15 @@ import "./NewPost.css";
 import axios from "axios";
 
 class NewPost extends Component {
-  state = {
-    title: "",
-    content: "",
-    author: "Max",
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: "",
+      content: "",
+      author: "Max",
+    };
+  }
+  
   componentDidMount() {
     console.log(this.props);
   }
@@ -25,6 +29,7 @@ class NewPost extends Component {
       });
   };
   render() {
+    debugger;
     return (
       <div className="NewPost">
         <h1>Add a Post</h1>
