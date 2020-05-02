@@ -18,6 +18,7 @@ class Blog extends Component {
               </li>
               <li>
                 <NavLink
+                activeClassName="my-active"
                   to={{
                     pathname: '/new-post',
                     hash: "#submit",
