@@ -29,7 +29,6 @@ class NewPost extends Component {
       });
   };
   render() {
-    debugger;
     return (
       <div className="NewPost">
         <h1>Add a Post</h1>

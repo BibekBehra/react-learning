@@ -15,6 +15,7 @@ class FullPost extends Component {
       });
   };
   componentDidUpdate() {
+    console.log(this.props);
     if (
       (this.props.id && !this.state.loadedPost && !this.state.error) ||
       (this.state.loadedPost && this.props.id !== this.state.loadedPost.id)
