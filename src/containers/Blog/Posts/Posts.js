@@ -26,18 +26,19 @@ class Posts extends Component {
   }
 
   postClickHandler = (id) => {
-    this.setState({ selectedPostId: id });
+    this.props.history.push("/"+id);
   };
   render() {
     const posts = this.state.posts.map((post) => {
       return (
-        <NavLink to={"/"+post.id} key={post.id}>
+        // <NavLink to={"/"+post.id} key={post.id}>
           <Post
+            key={post.id}
             title={post.title}
             author={post.Author}
             clicked={() => this.postClickHandler(post.id)}
           ></Post>
-        </NavLink>
+        // </NavLink>
       );
     });
     return <section className="Posts">{posts}</section>;
