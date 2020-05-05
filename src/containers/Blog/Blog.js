@@ -14,7 +14,7 @@ class Blog extends Component {
               <li>
                 <NavLink to="/" 
                 exact
-                >Home</NavLink>
+                >All Posts</NavLink>
               </li>
               <li>
                 <NavLink
