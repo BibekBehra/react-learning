@@ -15,7 +15,6 @@ class FullPost extends Component {
       });
   };
   componentDidMount() {
-    console.log(this.props.match.params.id);
     if (
       (this.props.match.params.id && !this.state.loadedPost && !this.state.error) ||
       (this.state.loadedPost && this.props.match.params.id !== this.state.loadedPost.id)
@@ -31,6 +30,7 @@ class FullPost extends Component {
     }
   }
   render(props) {
+    debugger;
     let post = <p style={{ textAlign: "center" }}>Please select a Post!</p>;
     if (this.props.match.params.id) {
       post = <p style={{ textAlign: "center" }}>Loading !</p>;
